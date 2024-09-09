@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <title>Document</title>
+</head>
+<body>
+ <div class="container  flex flex-col items-center min-h-screen bg-[url('https://wallpapercave.com/wp/wp8962708.jpg')] bg-center bg-cover">
+  <div class="flex flex-col space-y-5 m-40 max-[500px]:m-5  ">
+   <h1 class="text-2xl text-red-500 max-[500px]:   ">Text  Converter To Speak</h1>
+   <textarea name="write" id="txt" class="px-1 py-1 border border-rose-600  rounded-full "></textarea>
+  <button onclick="speak()" class="px-2 py-2 rounded-full text-xl text-white-500 border border-red-600  bg-red-600 shadow-xl shadow-red-500/50"><i class='bx bx-play-circle'></i>Listen</button>
+  </div>
+ </div>
+<script>
+ const txtbox =document.getElementById("txt")
+    function speak() {
+   
+    const utterance = new SpeechSynthesisUtterance(txtbox.value);
+    
+    utterance.pitch =100
+    const voices = speechSynthesis.getVoices();
+    utterance.voice = voices[0];
+
+    speechSynthesis.speak(utterance);
+
+
+
+
+    }
+
+
+
+
+</script>
+</body>
+</html>
